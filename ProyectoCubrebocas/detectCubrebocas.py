@@ -2,6 +2,8 @@ import cv2 as cv
 
 rostro = cv.CascadeClassifier('C:\\Users\\Edani\\Downloads\\cascade\\classifier\\cascade.xml')
 rostro2 = cv.CascadeClassifier('C:\\Users\\Edani\\Downloads\\CubrebocasDataset\\Face Mask Dataset\\Train\\classifier\\cascade.xml')
+rostro3 = cv.CascadeClassifier('C:\\Users\\Edani\\Downloads\\CubrebocasDataset\\Face Mask Dataset\\Train\\classifier\\cascade.xml')
+
 cap = cv.VideoCapture(0)
 
 
@@ -14,9 +16,14 @@ while True:
     # rostros = rostro.detectMultiScale(gray, scaleFactor= 1.4, minNeighbors= 18, minSize=(70, 70))
     #scalefactor = 1.24, minNeighbors = 50 / 35
     
-    rostros2 = rostro2.detectMultiScale(gray, scaleFactor= 1.32, minNeighbors= 25, minSize=(70, 70))
+    #cascade rostro 1k y 5k, pero con mucha luz no
+    # rostros = rostro2.detectMultiScale(gray, scaleFactor= 1.32, minNeighbors= 25, minSize=(70, 70))
     
-    for (x, y, w, h) in rostros2:
+    #cascade 7k neg, 80% 
+    rostros = rostro3.detectMultiScale(gray, scaleFactor= 1.46, minNeighbors= 25, minSize=(70, 70))
+    
+    
+    for (x, y, w, h) in rostros:
         frame = cv.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
         cv.putText(frame, 'Cubrebocas detectado', (x, y), 2, 0.7, (0, 255, 0), 2, cv.LINE_AA)
 
