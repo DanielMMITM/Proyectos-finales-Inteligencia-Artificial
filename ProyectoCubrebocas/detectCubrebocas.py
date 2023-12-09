@@ -14,7 +14,7 @@ while True:
     # rostros = rostro.detectMultiScale(gray, scaleFactor= 1.4, minNeighbors= 18, minSize=(70, 70))
     #scalefactor = 1.24, minNeighbors = 50 / 35
     
-    rostros2 = rostro.detectMultiScale(gray, scaleFactor= 1.32, minNeighbors= 25, minSize=(70, 70))
+    rostros2 = rostro2.detectMultiScale(gray, scaleFactor= 1.32, minNeighbors= 25, minSize=(70, 70))
     
     for (x, y, w, h) in rostros2:
         frame = cv.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
