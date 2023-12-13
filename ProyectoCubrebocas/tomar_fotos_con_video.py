@@ -4,7 +4,7 @@ import cv2 as cv
 import math
 
 cap = cv.VideoCapture(0)
-i = 728
+i = 0
 
 while True:
     i = i + 1
@@ -19,7 +19,7 @@ while True:
     
     # frame2 = imutils.resize(frame2, width=15, height=15)
     
-    cv.imwrite('C:\\Users\\Edani\\Downloads\\CubrebocasDataset\\Face Mask Dataset\\Train\\n\\nluz' + str(i) + '.jpg', frame2)
+    cv.imwrite('C:\\Users\\Edani\\Downloads\\CubrebocasDataset\\Face Mask Dataset\\Train\\n\\nuevasneg' + str(i) + '.jpg', frame2)
     cv.imshow("frame", frame)
     
     cv.imshow("dataset", frame2)

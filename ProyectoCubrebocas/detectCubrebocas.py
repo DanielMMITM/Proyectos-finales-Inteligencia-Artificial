@@ -1,8 +1,6 @@
 import cv2 as cv
 
-rostro = cv.CascadeClassifier('C:\\Users\\Edani\\Downloads\\cascade\\classifier\\cascade.xml')
-rostro2 = cv.CascadeClassifier('C:\\Users\\Edani\\Downloads\\CubrebocasDataset\\Face Mask Dataset\\Train\\classifier\\cascade.xml')
-rostro3 = cv.CascadeClassifier('C:\\Users\\Edani\\Downloads\\CubrebocasDataset\\Face Mask Dataset\\Train\\classifier\\cascade.xml')
+rostro4 = cv.CascadeClassifier('C:\\Users\\Edani\\Downloads\\CubrebocasDataset\\Face Mask Dataset\\Train\\classifier\\cascade.xml')
 
 cap = cv.VideoCapture(0)
 
@@ -11,16 +9,9 @@ while True:
     ret, frame = cap.read()
 
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
-    # 1k images
-    #scalefactor = 1.01, minNeighbors = 6 o 10 //// 1.1 y 4 C:\\Users\\Edani\\OneDrive\\Documentos\\IA\\Caras\\classifier\\cascade.xml
-    # rostros = rostro.detectMultiScale(gray, scaleFactor= 1.4, minNeighbors= 18, minSize=(70, 70))
-    #scalefactor = 1.24, minNeighbors = 50 / 35
     
-    #cascade rostro 1k y 5k, pero con mucha luz no
-    # rostros = rostro2.detectMultiScale(gray, scaleFactor= 1.32, minNeighbors= 25, minSize=(70, 70))
+    rostros = rostro4.detectMultiScale(gray, scaleFactor= 1.28, minNeighbors= 30, minSize=(70, 70))
     
-    #cascade 7k neg, 80% 
-    rostros = rostro3.detectMultiScale(gray, scaleFactor= 1.46, minNeighbors= 25, minSize=(70, 70))
     
     
     for (x, y, w, h) in rostros:
